@@ -1,21 +1,21 @@
 const rosa = {
-  leGusta() {
-    return peso < 2000
+  leGusta(objeto) {
+    return objeto.peso < 2000
   }
 }
 const estefania = {
-  leGusta() {
-    return color == fuerte
+  leGusta(objeto) {
+    return objeto.colorFuerte()
   }
 }
 const luisa = {
-  leGusta() {
-    return material == brilla
-  }
+  leGusta(objeto) {
+    return objeto.material.esBrillante()
+  },
 }
 const juan = {
-  leGusta() {
-    return color != fuerte || 1200 >= peso >= 1800
+  leGusta(objeto) {
+    return !objeto.colorFuerte()  || ( objeto.peso >= 1200 && objeto.peso <= 1800 )
   }
 }
 //Colores
@@ -72,7 +72,10 @@ const remera = {
   material: lino,
   peso: 800,
   colorFuerte() {
-    return this.color == rojo || this.color == pardo
+    return this.color == rojo || this.color == verde
+  },
+  materialBrillante(){
+    return this.material.esBrillante()
   },
 }
 const pelota = {
@@ -80,7 +83,10 @@ const pelota = {
   material: cuero,
   peso: 1300,
   colorFuerte() {
-    return this.color == rojo || this.color == pardo
+    return this.color == rojo || this.color == verde
+  },
+  materialBrillante(){
+    return this.material.esBrillante()
   },
 }
 const biblioteca = {
@@ -88,7 +94,10 @@ const biblioteca = {
   material: madera,
   peso: 8000,
   colorFuerte() {
-    return this.color == rojo || this.color == pardo
+    return this.color == rojo || this.color == verde
+  },
+  materialBrillante(){
+    return this.material.esBrillante()
   },
 }
 const muñeco = {
@@ -96,15 +105,22 @@ const muñeco = {
   material: vidrio,
   peso: 1300,
   colorFuerte() {
-    return this.color == rojo || this.color == pardo
+    return this.color == rojo || this.color == verde
+  },
+  materialBrillante(){
+    return this.material.esBrillante()
   },
 }
 const placa = {
   color: pardo,
-  material: cuero,
+  material: cobre,
   peso: 1300,
   colorFuerte() {
-    return this.color == rojo || this.color == pardo
+    return this.color == rojo || this.color == verde
+  },
+  materialBrillante(){
+    return this.material.esBrillante()
   },
 }
-console.log(`El color es fuerte: ${placa.colorFuerte()}`)
+
+console.log(`A estefania le gusta ${juan.leGusta(placa)}`)
