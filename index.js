@@ -226,53 +226,30 @@ const bolichito = {
     this.objetoMostrador = objetoEncontrado2
   },
   esBrillante() {
-    if (this.objetoVidriera.material.brilla() === true && this.objetoMostrador.material.brilla() === true) {
-      return true
-    } else {
-      return false
-    }
+    return this.objetoVidriera.material.brilla() && this.objetoMostrador.material.brilla()
   },
 
   esMonocromatico() {
-    if (this.objetoVidriera.color == this.objetoMostrador.color) {
-      return true
-    } else {
-      return false
-    }
+    return this.objetoVidriera.color == this.objetoMostrador.color
   },
 
   estaDesequilibrado() {
-    if (this.objetoMostrador.peso > this.objetoVidriera.peso) {
-      return true
-    } else {
-      return false
-    }
+    return this.objetoMostrador.peso > this.objetoVidriera.peso
   },
 
   tieneAlgoDeColor(unColor) {
-    if (this.objetoMostrador.color == unColor || this.objetoVidriera.color == unColor) {
-      return true
-    } else {
-      return false
-    }
+    return this.objetoMostrador.color == unColor || this.objetoVidriera.color == unColor
   },
 
   puedeMejorar() {
-    if (this.esMonocromatico() === true || this.estaDesequilibrado() === true) {
-      return true
-    } else {
-      return false
-    }
+    return this.esMonocromatico() || this.estaDesequilibrado()
+
   },
 
   puedeOfrecerleAlgoA(unaPersona) {
     unaPersona.encuentraObjeto(this.objetoVidriera)
     unaPersona.encuentraObjeto(this.objetoMostrador)
-    if ( unaPersona.leGusta === true ) {
-      return true
-    } else {
-      return false
-    }
+    return unaPersona.leGusta 
   }
 }
 
@@ -471,7 +448,7 @@ bolichito.cambiarObjetoVidriera(biblioteca)
 bolichito.cambiarObjetoMostrador(placa)
 bolichito.cambiarObjetoMostrador(Banquito)
 bolichito.cambiarObjetoVidriera(Arito)
-bolichito.cambiarObjetoMostrador(cajita)
+bolichito.cambiarObjetoMostrador(biblioteca)
 console.log(`El Objeto en el mostrador es brillante: ${bolichito.objetoMostrador.material.brilla()}`)
 console.log(`El Objeto en la Vidriera es brillante: ${bolichito.objetoVidriera.material.brilla()}`)
 console.log(`los dos Objetos del bolichito son brillantes: ${bolichito.esBrillante()}`)
